@@ -1,26 +1,34 @@
 
 function callback(xhr) {
 	var data = JSON.parse(xhr.responseText);
-    console.log(data);
-	var len = data.length;
-	var container = document.querySelector('#container');
-	for (var i = 0; i < len; i++) {
-		var box = document.createElement('div');
-		box.className = 'picture'
-		box.innerHTML = "<img src=" + data[i].picture + " />";
-        container.appendChild(box);
-        var nameLink = document.createElement('a');
-        nameLink.className = 'name';
-        nameLink.href = "details";
-        nameLink.innerHTML = data[i].name;
-		container.appendChild(nameLink);
-	}
+    data = { 'roles': data };                              // mustache requires key value pair to iterate array of objects!
+
+    $.get("users-template.html", function(content){
+        var rendered = Mustache.to_html( content,  data );
+        $('#container').html(rendered);
+    });
+
+    $(document).on('click', ".details", function () {
+
+        $('#container').find('.profile-details').each(function (i) {
+            $(this).attr('id', i);
+        });
+
+        var $this = $(this);
+        var indent = $this.parent().next('div.profile-details').attr('id');
+        console.log(indent);
+
+
+
+        $.get("users-details.html", function(content){
+            data["roles"].forEach(function(el , index){
+                var rendered = Mustache.to_html( content,  el );
+                if(index == indent){
+                    $('#' + index).html(rendered);
+                }
+            });
+        });
+    })
 }
 
-
 Ajax.makeRequest('POST', 'server.php', {}, true, callback);
-
-
-
-
-

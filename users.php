@@ -16,31 +16,24 @@ return [
         'gender' => 'M'
     ],
     [
-        'name' => 'Linda Brown',
+        'name' => 'Scott Shea',
         'picture' => 'pictures/03.jpg',
         'position' => 'junior developer',
         'date of birth' => '1954-03-13',
-        'gender' => 'F'
+        'gender' => 'M'
     ],
     [
-        'name' => 'Scott Shea',
+        'name' => 'Linda Brown',
         'picture' => 'pictures/04.jpg',
         'position' => 'team lead',
         'date of birth' => '1959-08-13',
-        'gender' => 'Dope_D.O.D.jpg'
+        'gender' => 'F'
     ],
     [
         'name' => 'Dan Matthew',
         'picture' => 'pictures/05.jpg',
         'position' => 'senior developer',
         'date of birth' => '1974-03-11',
-        'gender' => 'M'
-    ],
-    [
-        'name' => 'Bill O\'Brien',
-        'picture' => 'pictures/06.jpg',
-        'position' => 'senior developer',
-        'date of birth' => '1986-05-23',
         'gender' => 'M'
     ],
     [
@@ -70,6 +63,6 @@ return [
         'position' => 'Marketing',
         'date of birth' => '1958-07-13',
         'gender' => 'M'
-    ],
-
+    ]
 ];
+
